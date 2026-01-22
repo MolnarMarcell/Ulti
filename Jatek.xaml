@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="Játék" Height="450" Width="800">
     <Grid>
-        
+        <CheckBox x:Name="Piros" Content="Piros" HorizontalAlignment="Left" Margin="329,98,0,0" VerticalAlignment="Top" Checked="Checking"/>
+        <CheckBox x:Name="_20_100" Content="20-100" HorizontalAlignment="Left" Margin="124,166,0,0" VerticalAlignment="Top" Checked="Checking"/>
+        <CheckBox x:Name="Durchmarsch" Content="Durchmarsh" HorizontalAlignment="Left" Margin="124,146,0,0" VerticalAlignment="Top" Checked="Checking"/>
+        <CheckBox x:Name="Betli" Content="Betli" HorizontalAlignment="Left" Margin="124,126,0,0" VerticalAlignment="Top" Checked="Checking"/>
+        <CheckBox x:Name="Ulti" Content="Ulti" HorizontalAlignment="Left" Margin="124,106,0,0" VerticalAlignment="Top" IsChecked="False" Checked="Checking"/>
+        <CheckBox x:Name="Passz" Content="Passz" HorizontalAlignment="Left" Margin="124,66,0,0" VerticalAlignment="Top" Checked="Checking"/>
+        <CheckBox x:Name="_40_100" Content="40-100" HorizontalAlignment="Left" Margin="124,86,0,0" VerticalAlignment="Top" Checked="Checking"/>
+        <CheckBox x:Name="Terített" Content="Terített" HorizontalAlignment="Left" Margin="329,134,0,0" VerticalAlignment="Top" Checked="Checking"/>
+        <ComboBox x:Name="Jatekosk_Combobox" HorizontalAlignment="Left" Margin="589,94,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="OK" HorizontalAlignment="Left" Margin="629,164,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Bug_fix" Content="Label" HorizontalAlignment="Left" Margin="454,0,0,0" VerticalAlignment="Center"/>
+
     </Grid>
 </Window>

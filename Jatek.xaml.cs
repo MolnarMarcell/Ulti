@@ -23,5 +23,33 @@ namespace Ulti
         {
             InitializeComponent();
         }
+
+        private void Checking(object sender, RoutedEventArgs e)
+        {
+            
+
+            if (Passz.IsChecked == true)
+            {
+                Bug_fix.Content = "Passz kiválasztva";
+            }
+            if (_40_100.IsChecked == true)
+            {
+                Bug_fix.Content = "40-100 kiválasztva";
+            }
+            if (Ulti.IsChecked == true)
+            {
+                Bug_fix.Content = "Ulti kiválasztva";
+            }
+            if (Ulti.IsChecked == true)
+            {
+                Bug_fix.Content = "Ulti kiválasztva";
+            }
+            if (Ulti.IsChecked == true)
+            {
+                Bug_fix.Content = "Ulti kiválasztva";
+            }
+
+
+        }
     }
 }
