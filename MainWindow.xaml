@@ -1,0 +1,31 @@
+﻿<Window x:Class="Ulti.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ulti"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        MaxHeight="390" MaxWidth="470"
+        Title="Játékosok" Height="350" Width="450">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="68*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="55*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Első játékos: " HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Center"/>
+        <TextBox x:Name="elso" HorizontalAlignment="Left" Margin="154,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155" FontFamily="Arial"/>
+        <TextBox x:Name="masodik" HorizontalAlignment="Left" Margin="154,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="155" FontFamily="Arial" Grid.Row="1"/>
+        <TextBox x:Name="harmadik" HorizontalAlignment="Left" Margin="154,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="155" FontFamily="Arial" Grid.Row="2"/>
+        <TextBox x:Name="negyedik" HorizontalAlignment="Left" Margin="154,21,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155" FontFamily="Arial" Grid.Row="3"/>
+        <Label Content="Második játékos:" HorizontalAlignment="Left" Margin="36,19,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Label Content="Harmadik játékos: " HorizontalAlignment="Left" Margin="37,14,0,0" VerticalAlignment="Top" Grid.Row="2"/>
+        <Label Content="Negyedik játékos: " HorizontalAlignment="Left" Margin="37,17,0,0" VerticalAlignment="Top" Grid.Row="3"/>
+        <Button x:Name="OKGOMB" Content="OK" HorizontalAlignment="Left" Margin="156,0,0,0" Grid.Row="4" VerticalAlignment="Center" Width="98" Click="OKGOMB_Click"/>
+        <Label x:Name="vissza" Content="Visszajelző" HorizontalAlignment="Left" Margin="304,22,0,0" Grid.Row="4" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
