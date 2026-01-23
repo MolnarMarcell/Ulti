@@ -7,17 +7,21 @@
         mc:Ignorable="d"
         Title="Játék" Height="450" Width="800">
     <Grid>
-        <CheckBox x:Name="Piros" Content="Piros" HorizontalAlignment="Left" Margin="329,98,0,0" VerticalAlignment="Top" Checked="Checking"/>
-        <CheckBox x:Name="_20_100" Content="20-100" HorizontalAlignment="Left" Margin="124,166,0,0" VerticalAlignment="Top" Checked="Checking"/>
-        <CheckBox x:Name="Durchmarsch" Content="Durchmarsh" HorizontalAlignment="Left" Margin="124,146,0,0" VerticalAlignment="Top" Checked="Checking"/>
-        <CheckBox x:Name="Betli" Content="Betli" HorizontalAlignment="Left" Margin="124,126,0,0" VerticalAlignment="Top" Checked="Checking"/>
-        <CheckBox x:Name="Ulti" Content="Ulti" HorizontalAlignment="Left" Margin="124,106,0,0" VerticalAlignment="Top" IsChecked="False" Checked="Checking"/>
-        <CheckBox x:Name="Passz" Content="Passz" HorizontalAlignment="Left" Margin="124,66,0,0" VerticalAlignment="Top" Checked="Checking"/>
-        <CheckBox x:Name="_40_100" Content="40-100" HorizontalAlignment="Left" Margin="124,86,0,0" VerticalAlignment="Top" Checked="Checking"/>
-        <CheckBox x:Name="Terített" Content="Terített" HorizontalAlignment="Left" Margin="329,134,0,0" VerticalAlignment="Top" Checked="Checking"/>
-        <ComboBox x:Name="Jatekosk_Combobox" HorizontalAlignment="Left" Margin="589,94,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button Content="OK" HorizontalAlignment="Left" Margin="629,164,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Bug_fix" Content="Label" HorizontalAlignment="Left" Margin="454,0,0,0" VerticalAlignment="Center"/>
+        <ComboBox x:Name="Bemondas_ComboBox" HorizontalAlignment="Left" Margin="182,107,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="Mentes_Gomb" Content="OK" HorizontalAlignment="Left" Margin="699,383,0,0" VerticalAlignment="Top" Click="Mentes_Gomb_Click"/>
+        <Label x:Name="Bug_fix" Content="Kiirja a JÁTÉKOT" HorizontalAlignment="Left" Margin="124,263,0,0" VerticalAlignment="Top" Width="210"/>
+        <Label Content="PONTSZÁM&#xD;&#xA;" HorizontalAlignment="Left" Margin="334,255,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="38" Width="85">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-1.024"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Bemondás:" HorizontalAlignment="Left" Margin="109,105,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Jatekosok_Combobox" HorizontalAlignment="Left" Margin="572,107,0,0" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
