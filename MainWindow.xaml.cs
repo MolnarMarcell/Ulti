@@ -18,7 +18,7 @@ namespace Ulti
     
     public partial class MainWindow : Window
     {
-        List<Jatekosok> jatekosoks = new List<Jatekosok>();
+         List<Jatekosok> jatekosoks = new List<Jatekosok>();
 
         public MainWindow()
         {
