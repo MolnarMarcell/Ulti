@@ -14,11 +14,13 @@ namespace Ulti
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    /// 
+    ///
     
+
     public partial class MainWindow : Window
     {
-        List<Jatekosok> jatekosoks = new List<Jatekosok>();
+         List<Jatekosok> jatekosok = new List<Jatekosok>();
+
 
         public MainWindow()
         {
@@ -39,7 +41,7 @@ namespace Ulti
 
             //
                 Jatekosok ujjatekos = new Jatekosok(elso.Text, masodik.Text, harmadik.Text, negyedik.Text);
-                jatekosoks.Add(ujjatekos);
+                jatekosok.Add(ujjatekos);
 
                 Application.Current.MainWindow = jatekwindow;
                 jatekwindow.Show();

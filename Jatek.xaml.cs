@@ -19,9 +19,65 @@ namespace Ulti
     /// </summary>
     public partial class Jatek : Window
     {
+        void Betoltes()
+        {
+            
+        }
+
         public Jatek()
         {
             InitializeComponent();
+            Betoltes();
+
+        }
+
+        private void Mentes_Gomb_Click(object sender, RoutedEventArgs e)
+        {
+            List<string> Bemondasok = new List<string>
+            {
+                "Passz",
+                "Piros Passz",
+                "40-100",
+                "Ulti",
+                "Betli",
+                "Durchmarsch",
+                "40-100 Ulti",
+                "Piros 40-100",
+                "20-100",
+                "Piros Ulti",
+                "Pirosbetli",
+                "Durchmarsch 40-100",
+                "Durchmarsch Ulti",
+                "Ulti 20-100",
+                "Pirosdurchmarsch",
+                "Durchmarsch 40-100 Ulti",
+                "Durchmarsch 20-100",
+                "Piros 40-100 Ulti",
+                "Piros 20-100",
+                "Durchmarsch Ulti 20-100",
+                "Pirosdurchmarsch 40-100",
+                "Pirosdurchmarsch Ulti",
+                "Terítettbetli",
+                "Piros Ulti 20-100",
+                "Terített Durchmarsch",
+                "Piros Durchmarsch 40-100 Ulti",
+                "Piros Durchmarsch 20-100",
+                "Terített Durchmarsch 40-100",
+                "Terített Durchmarsch Ulti",
+                "Terített Durchmarsch 40-100 Ulti",
+                "Piros Terített Durchmarsch 40-100",
+                "Piros Terített Durchmarsch Ulti",
+                "Terített Durchmarsch 20-100",
+                "Piros Durchmarsch Ulti 20-100",
+                "Terített Durchmarsch Ulti 20-100",
+                "Piros Terített Durchmarsch 40-100 Ulti",
+                "Piros Terített Durchmarsch 20-100",
+                "Piros Terített Durchmarsch Ulti 20-100",
+            };
+            foreach (var item in Bemondasok)
+            {
+                Bemondas_ComboBox.Items.Add(item);
+            }
         }
     }
 }
