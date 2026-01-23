@@ -5,27 +5,141 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ulti"
         mc:Ignorable="d"
-        ResizeMode="NoResize"
-        MaxHeight="390" MaxWidth="470"
-        Title="Játékosok" Height="350" Width="450">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="55*"/>
-            <RowDefinition Height="68*"/>
-            <RowDefinition Height="55*"/>
-            <RowDefinition Height="55*"/>
-            <RowDefinition Height="55*"/>
-        </Grid.RowDefinitions>
-        <Label Content="Első játékos: " HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Center"/>
-        <TextBox x:Name="elso" HorizontalAlignment="Left" Margin="154,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155" FontFamily="Arial"/>
-        <TextBox x:Name="masodik" HorizontalAlignment="Left" Margin="154,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="155" FontFamily="Arial" Grid.Row="1"/>
-        <TextBox x:Name="harmadik" HorizontalAlignment="Left" Margin="154,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="155" FontFamily="Arial" Grid.Row="2"/>
-        <TextBox x:Name="negyedik" HorizontalAlignment="Left" Margin="154,21,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155" FontFamily="Arial" Grid.Row="3"/>
-        <Label Content="Második játékos:" HorizontalAlignment="Left" Margin="36,19,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-        <Label Content="Harmadik játékos: " HorizontalAlignment="Left" Margin="37,14,0,0" VerticalAlignment="Top" Grid.Row="2"/>
-        <Label Content="Negyedik játékos: " HorizontalAlignment="Left" Margin="37,17,0,0" VerticalAlignment="Top" Grid.Row="3"/>
-        <Button x:Name="OKGOMB" Content="OK" HorizontalAlignment="Left" Margin="156,0,0,0" Grid.Row="4" VerticalAlignment="Center" Width="98" Click="OKGOMB_Click"/>
-        <Label x:Name="vissza" Content="Visszajelző" HorizontalAlignment="Left" Margin="304,22,0,0" Grid.Row="4" VerticalAlignment="Top"/>
 
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="NoResize"
+
+        MaxHeight="390"
+        MaxWidth="470"
+        Height="350"
+        Width="450"
+        Background="Transparent">
+
+
+    <!-- STÍLUSOK -->
+    <Window.Resources>
+
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="#EAEAEA"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="170"/>
+            <Setter Property="Height" Value="28"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="6,2"/>
+            <Setter Property="Background" Value="#3F3F3F"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="110"/>
+            <Setter Property="Height" Value="34"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Background" Value="#3A7AFE"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="6">
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#2F66D0"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+
+    <!-- TARTALOM -->
+
+
+    <Grid>
+        <Border Background="#3A3A3A"
+                CornerRadius="12"
+                Padding="20"
+                Margin="20"
+                MouseLeftButtonDown="Window_MouseLeftButtonDown">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- CÍM -->
+                <TextBlock Text="Játékosok nevei"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           Margin="0,0,0,15"/>
+
+                <!-- ŰRLAP -->
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Content="Első játékos:"/>
+                    <TextBox x:Name="elso" Grid.Column="1"/>
+
+                    <Label Content="Második játékos:" Grid.Row="1"/>
+                    <TextBox x:Name="masodik" Grid.Row="1" Grid.Column="1"/>
+
+                    <Label Content="Harmadik játékos:" Grid.Row="2"/>
+                    <TextBox x:Name="harmadik" Grid.Row="2" Grid.Column="1"/>
+
+                    <Label Content="Negyedik játékos:" Grid.Row="3"/>
+                    <TextBox x:Name="negyedik" Grid.Row="3" Grid.Column="1"/>
+                </Grid>
+
+                <!-- ALSÓ SÁV -->
+                <Grid Grid.Row="2" Margin="0,15,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <Button x:Name="OKGOMB"
+                            Grid.Column="1"
+                            Content="OK"
+                            Click="OKGOMB_Click"/>
+                </Grid>
+
+            </Grid>
+        </Border>
+        <Button Content="✕"
+        Width="28"
+        Height="28"
+        Background="#AA3333"
+        Foreground="White"
+        HorizontalAlignment="Right"
+        VerticalAlignment="Top"
+        Margin="0,26,28,0"
+        Click="Close_Click"/>
     </Grid>
 </Window>
