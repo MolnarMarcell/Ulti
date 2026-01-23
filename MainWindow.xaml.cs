@@ -14,11 +14,13 @@ namespace Ulti
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    /// 
+    ///
     
+
     public partial class MainWindow : Window
     {
-         List<Jatekosok> jatekosoks = new List<Jatekosok>();
+         List<Jatekosok> jatekosok = new List<Jatekosok>();
+
 
         public MainWindow()
         {
@@ -39,9 +41,9 @@ namespace Ulti
 
             //
                 Jatekosok ujjatekos = new Jatekosok(elso.Text, masodik.Text, harmadik.Text, negyedik.Text);
-                jatekosoks.Add(ujjatekos);
+                jatekosok.Add(ujjatekos);
 
-                foreach (var sor in jatekosoks)
+                foreach (var sor in jatekosok)
                 {
                     vissza.Content = $"{sor.elsojatekos}, {sor.masodikjatekos}, {sor.harmadikjatekos}, {sor.negyedikjatekos}";
                 }

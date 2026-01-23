@@ -8,7 +8,7 @@
         Title="Játék" Height="450" Width="800">
     <Grid>
         <ComboBox x:Name="Bemondas_ComboBox" HorizontalAlignment="Left" Margin="182,107,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="Mentes_Gomb" Content="OK" HorizontalAlignment="Left" Margin="699,383,0,0" VerticalAlignment="Top" Click="Mentes_Gomb_Click"/>
+        <Button x:Name="Mentes_Gomb" Content="OK" HorizontalAlignment="Left" Margin="550,261,0,0" VerticalAlignment="Top" Click="Mentes_Gomb_Click" Width="70" Height="50"/>
         <Label x:Name="Bug_fix" Content="Kiirja a JÁTÉKOT" HorizontalAlignment="Left" Margin="124,263,0,0" VerticalAlignment="Top" Width="210"/>
         <Label Content="PONTSZÁM&#xD;&#xA;" HorizontalAlignment="Left" Margin="334,255,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="38" Width="85">
             <Label.RenderTransform>

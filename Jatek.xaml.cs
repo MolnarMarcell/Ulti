@@ -21,6 +21,7 @@ namespace Ulti
     {
         void Betoltes()
         {
+            
         }
 
         public Jatek()
