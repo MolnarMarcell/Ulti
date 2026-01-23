@@ -43,15 +43,23 @@ namespace Ulti
                 Jatekosok ujjatekos = new Jatekosok(elso.Text, masodik.Text, harmadik.Text, negyedik.Text);
                 jatekosok.Add(ujjatekos);
 
-                foreach (var sor in jatekosok)
-                {
-                    vissza.Content = $"{sor.elsojatekos}, {sor.masodikjatekos}, {sor.harmadikjatekos}, {sor.negyedikjatekos}";
-                }
-
                 Application.Current.MainWindow = jatekwindow;
                 jatekwindow.Show();
 
                 this.Close();
         }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+                this.DragMove();
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+
     }
 }
