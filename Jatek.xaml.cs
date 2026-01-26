@@ -19,21 +19,23 @@ namespace Ulti
     /// </summary>
     public partial class Jatek : Window
     {
-        void Betoltes()
+        public void Betoltes(List<string> lista)
         {
-            
-        }
+            foreach (var item in lista)
+            {
+                Jatekosok_Combobox.Items.Add(item);
+            }
 
-        public Jatek()
-        {
-            InitializeComponent();
-            Betoltes();
 
         }
-
-        private void Mentes_Gomb_Click(object sender, RoutedEventArgs e)
+        public void Bemondasok_Betoltes(List<string> lista)
         {
-            List<string> Bemondasok = new List<string>
+            foreach (var item in lista)
+            {
+                Bemondas_ComboBox.Items.Add(item);
+            }
+        }
+        public List<string> Bemondasok = new List<string>
             {
                 "Passz",
                 "Piros Passz",
@@ -74,10 +76,15 @@ namespace Ulti
                 "Piros Terített Durchmarsch 20-100",
                 "Piros Terített Durchmarsch Ulti 20-100",
             };
-            foreach (var item in Bemondasok)
-            {
-                Bemondas_ComboBox.Items.Add(item);
-            }
+        
+
+        public Jatek()
+        {
+            InitializeComponent();
+            Betoltes(new List<string>());
+            Bemondasok_Betoltes(Bemondasok);
+        }
+
+        
         }
     }
-}

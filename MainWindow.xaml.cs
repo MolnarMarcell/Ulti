@@ -19,13 +19,20 @@ namespace Ulti
 
     public partial class MainWindow : Window
     {
-         List<Jatekosok> jatekosok = new List<Jatekosok>();
+        public List<string> jatekosok = new List<string>();
+        //public MainWindow(List<string> jatekosok)
+        //{
+        //    InitializeComponent();
+        //    this.jatekosok = jatekosok;
+        //    Jatekosok_Combobox = jatekosok;
+        //}
 
 
         public MainWindow()
         {
 
             InitializeComponent();
+            
         }
 
 
@@ -40,10 +47,14 @@ namespace Ulti
                 Jatek jatekwindow = new Jatek();
 
             //
-                Jatekosok ujjatekos = new Jatekosok(elso.Text, masodik.Text, harmadik.Text, negyedik.Text);
-                jatekosok.Add(ujjatekos);
+            jatekosok.Add(elso.Text);
+            jatekosok.Add(masodik.Text);
+            jatekosok.Add(harmadik.Text);
+            jatekosok.Add(negyedik.Text);
+            
 
                 Application.Current.MainWindow = jatekwindow;
+                jatekwindow.Betoltes(jatekosok);
                 jatekwindow.Show();
 
                 this.Close();
