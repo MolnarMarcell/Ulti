@@ -84,8 +84,9 @@
                 </Grid.RowDefinitions>
 
                 <!-- CÍM -->
-                <TextBlock Text="Játékosok nevei"
+                <TextBlock Text="Ulti pont számító - Játékosok nevei"
                            FontSize="20"
+                           FontFamily="Arial"
                            FontWeight="Bold"
                            Foreground="White"
                            Margin="0,0,0,15"/>
