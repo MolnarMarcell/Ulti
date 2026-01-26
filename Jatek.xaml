@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="Játék" Height="450" Width="800">
     <Grid>
-        <ComboBox x:Name="Bemondas_ComboBox" HorizontalAlignment="Left" Margin="182,107,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="Bemondas_ComboBox" HorizontalAlignment="Left" Margin="182,107,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Bemondas_ComboBox_SelectionChanged"/>
         <Button x:Name="Mentes_Gomb" Content="OK" HorizontalAlignment="Left" Margin="550,261,0,0" VerticalAlignment="Top" Width="70" Height="50"/>
-        <Label x:Name="Bug_fix" Content="Kiirja a JÁTÉKOT" HorizontalAlignment="Left" Margin="124,263,0,0" VerticalAlignment="Top" Width="210"/>
-        <Label Content="PONTSZÁM&#xD;&#xA;" HorizontalAlignment="Left" Margin="334,255,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="38" Width="85">
+        <Label x:Name="Allapot_Bemondas" Content="" HorizontalAlignment="Left" Margin="154,194,0,0" VerticalAlignment="Top" Width="210"/>
+        <Label Content="PONTSZÁM:" HorizontalAlignment="Left" Margin="99,241,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="38" Width="85">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -22,6 +22,8 @@
         </Label>
         <Label Content="Bemondás:" HorizontalAlignment="Left" Margin="109,105,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="Jatekosok_Combobox" HorizontalAlignment="Left" Margin="572,107,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Állapot:" HorizontalAlignment="Left" Margin="99,194,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Pontszam" Content="" HorizontalAlignment="Left" Margin="182,243,0,0" VerticalAlignment="Top" Width="210"/>
 
     </Grid>
 </Window>
