@@ -85,25 +85,15 @@ namespace Ulti
             Bemondasok_Betoltes(Bemondasok);
         }
 
-
-        private void InfoButton_MouseEnter(object sender, MouseEventArgs e)
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            InfoImage.Visibility = Visibility.Visible;
+            if (e.ButtonState == MouseButtonState.Pressed)
+                this.DragMove();
         }
 
-        private void InfoButton_MouseLeave(object sender, MouseEventArgs e)
+        private void Close_Click(object sender, RoutedEventArgs e)
         {
-            InfoImage.Visibility = Visibility.Collapsed;
-        }
-
-        private void InfoButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("A gomb működik 👍");
-        }
-
-        private void Button_MouseEnter(object sender, MouseEventArgs e)
-        {
-            InfoImage.Visibility = Visibility.Visible;
+            this.Close();
         }
     }
 }
