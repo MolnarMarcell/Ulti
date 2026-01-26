@@ -14,16 +14,25 @@ namespace Ulti
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    /// 
+    ///
     
+
     public partial class MainWindow : Window
     {
-        List<Jatekosok> jatekosoks = new List<Jatekosok>();
+        public List<string> jatekosok = new List<string>();
+        //public MainWindow(List<string> jatekosok)
+        //{
+        //    InitializeComponent();
+        //    this.jatekosok = jatekosok;
+        //    Jatekosok_Combobox = jatekosok;
+        //}
+
 
         public MainWindow()
         {
 
             InitializeComponent();
+            
         }
 
 
@@ -38,18 +47,30 @@ namespace Ulti
                 Jatek jatekwindow = new Jatek();
 
             //
-                Jatekosok ujjatekos = new Jatekosok(elso.Text, masodik.Text, harmadik.Text, negyedik.Text);
-                jatekosoks.Add(ujjatekos);
-
-                foreach (var sor in jatekosoks)
-                {
-                    vissza.Content = $"{sor.elsojatekos}, {sor.masodikjatekos}, {sor.harmadikjatekos}, {sor.negyedikjatekos}";
-                }
+            jatekosok.Add(elso.Text);
+            jatekosok.Add(masodik.Text);
+            jatekosok.Add(harmadik.Text);
+            jatekosok.Add(negyedik.Text);
+            
 
                 Application.Current.MainWindow = jatekwindow;
+                jatekwindow.Betoltes(jatekosok);
                 jatekwindow.Show();
 
                 this.Close();
         }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+                this.DragMove();
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+
     }
 }

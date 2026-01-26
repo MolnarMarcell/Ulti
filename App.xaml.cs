@@ -9,6 +9,7 @@ namespace Ulti
     /// </summary>
     public partial class App : Application
     {
+         public List<string> jatekosok = new List<string>();
     }
 
 }

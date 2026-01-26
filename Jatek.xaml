@@ -5,80 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ulti"
         mc:Ignorable="d"
-        Title="Játék"
-        Height="450"
-        Width="800"
-        WindowStartupLocation="CenterScreen">
-
-    <!-- KELL háttér, különben hover nem megbízható -->
-    <Grid Background="#2B2B2B">
-
-        <!-- ===== BEMONDÁS ===== -->
-        <Label Content="Bemondás:"
-               Foreground="White"
-               Margin="109,105,0,0"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Top"/>
-
-        <ComboBox x:Name="Bemondas_ComboBox"
-                  Width="120"
-                  Margin="182,107,0,0"
-                  HorizontalAlignment="Left"
-                  VerticalAlignment="Top"/>
-
-        <!-- ===== JÁTÉKOS ===== -->
-        <ComboBox x:Name="Jatekosok_Combobox"
-                  Width="120"
-                  Margin="572,107,0,0"
-                  HorizontalAlignment="Left"
-                  VerticalAlignment="Top"/>
-
-        <!-- ===== OK GOMB ===== -->
-        <Button x:Name="Mentes_Gomb"
-                Content="OK"
-                Width="70"
-                Height="50"
-                Margin="550,261,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Click="Mentes_Gomb_Click"/>
-
-        <!-- ===== KIÍRÁS ===== -->
-        <Label x:Name="Bug_fix"
-               Content="Kiírja a JÁTÉKOT"
-               Foreground="White"
-               Margin="124,263,0,0"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Top"
-               Width="210"/>
-
-        <!-- ===== INFO ZÓNA (EZ A LÉNYEG) ===== -->
-        <Grid HorizontalAlignment="Right"
-              VerticalAlignment="Top"
-              Margin="0,10,10,0">
-
-            <!-- INFO GOMB -->
-            <Button Content="?"
-                    Width="30"
-                    Height="30"
-                    FontSize="16"
-                    FontWeight="Bold"
-                    Cursor="Hand" MouseEnter="Button_MouseEnter"/>
-
-            <!-- INFO KÉP -->
-            <Image x:Name="InfoImage"
-                   Source="/Images/info.png"
-                   Width="200"
-                   Height="200"
-                   Margin="0,35,0,0"
-                   Visibility="Collapsed"
-                   Panel.ZIndex="10"/>
-
-            <!-- HOVER LOGIKA: A TELJES ZÓNÁRA -->
-
-
-        </Grid>
-        <!-- ===== INFO ZÓNA VÉGE ===== -->
+        Title="Játék" Height="450" Width="800">
+    <Grid>
+        <ComboBox x:Name="Bemondas_ComboBox" HorizontalAlignment="Left" Margin="182,107,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="Mentes_Gomb" Content="OK" HorizontalAlignment="Left" Margin="550,261,0,0" VerticalAlignment="Top" Width="70" Height="50"/>
+        <Label x:Name="Bug_fix" Content="Kiirja a JÁTÉKOT" HorizontalAlignment="Left" Margin="124,263,0,0" VerticalAlignment="Top" Width="210"/>
+        <Label Content="PONTSZÁM&#xD;&#xA;" HorizontalAlignment="Left" Margin="334,255,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="38" Width="85">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-1.024"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Bemondás:" HorizontalAlignment="Left" Margin="109,105,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Jatekosok_Combobox" HorizontalAlignment="Left" Margin="572,107,0,0" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
