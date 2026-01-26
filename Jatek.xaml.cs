@@ -28,53 +28,53 @@ namespace Ulti
 
 
         }
-        public void Bemondasok_Betoltes(List<string> lista)
+        public void Bemondasok_Betoltes(Dictionary<string, int> lista)
         {
             foreach (var item in lista)
             {
-                Bemondas_ComboBox.Items.Add(item);
+                Bemondas_ComboBox.Items.Add(item.Key);
             }
         }
-        public List<string> Bemondasok = new List<string>
+        public Dictionary<string,int> Bemondasok = new Dictionary<string, int>
             {
-                "Passz",
-                "Piros Passz",
-                "40-100",
-                "Ulti",
-                "Betli",
-                "Durchmarsch",
-                "40-100 Ulti",
-                "Piros 40-100",
-                "20-100",
-                "Piros Ulti",
-                "Pirosbetli",
-                "Durchmarsch 40-100",
-                "Durchmarsch Ulti",
-                "Ulti 20-100",
-                "Pirosdurchmarsch",
-                "Durchmarsch 40-100 Ulti",
-                "Durchmarsch 20-100",
-                "Piros 40-100 Ulti",
-                "Piros 20-100",
-                "Durchmarsch Ulti 20-100",
-                "Pirosdurchmarsch 40-100",
-                "Pirosdurchmarsch Ulti",
-                "Terítettbetli",
-                "Piros Ulti 20-100",
-                "Terített Durchmarsch",
-                "Piros Durchmarsch 40-100 Ulti",
-                "Piros Durchmarsch 20-100",
-                "Terített Durchmarsch 40-100",
-                "Terített Durchmarsch Ulti",
-                "Terített Durchmarsch 40-100 Ulti",
-                "Piros Terített Durchmarsch 40-100",
-                "Piros Terített Durchmarsch Ulti",
-                "Terített Durchmarsch 20-100",
-                "Piros Durchmarsch Ulti 20-100",
-                "Terített Durchmarsch Ulti 20-100",
-                "Piros Terített Durchmarsch 40-100 Ulti",
-                "Piros Terített Durchmarsch 20-100",
-                "Piros Terített Durchmarsch Ulti 20-100",
+            {"Passz",1 },
+            {"Piros Passz",2},
+            {"40-100",4 },
+            {"Ulti",5 },
+            {"Betli",5 },
+            {"Durchmarsch",6 },
+            {"40-100 Ulti",8 },
+            {"Piros 40-100",8},
+            {"20-100" ,10},
+            {"Piros Ulti" ,10},
+            {"Pirosbetli" ,10},
+            {"Durchmarsch 40-100" ,10},
+            {"Durchmarsch Ulti" ,12},
+            {"Ulti 20-100" ,12},
+            {"Pirosdurchmarsch" ,14},
+            {"Durchmarsch 40-100 Ulti" ,14},
+            {"Durchmarsch 20-100" ,16},
+            {"Piros 40-100 Ulti" ,16},
+            {"Piros 20-100" ,16},
+            {"Durchmarsch Ulti 20-100" ,18},
+            {"Pirosdurchmarsch 40-100" ,20},
+            {"Pirosdurchmarsch Ulti" ,20},
+            {"Terítettbetli" ,20},
+            { "Piros Ulti 20-100" ,24},
+            {"Terített Durchmarsch" ,24},
+            {"Piros Durchmarsch 40-100 Ulti" ,28},
+            {"Piros Durchmarsch 20-100" ,28},
+            {"Terített Durchmarsch 40-100"   ,28},
+            {"Terített Durchmarsch Ulti" ,28},
+            {"Terített Durchmarsch 40-100 Ulti" ,32},
+            {"Piros Terített Durchmarsch 40-100" ,32},
+            {"Piros Terített Durchmarsch Ulti" ,32},
+            {"Terített Durchmarsch 20-100" ,32},
+            {"Piros Durchmarsch Ulti 20-100" ,36},
+            {"Terített Durchmarsch Ulti 20-100" ,36},
+            {"Piros Terített Durchmarsch 40-100 Ulti" ,40},
+            {"Piros Terített Durchmarsch 20-100" ,40},
+            {"Piros Terített Durchmarsch Ulti 20-100" ,48}               
             };
         
 
@@ -85,6 +85,11 @@ namespace Ulti
             Bemondasok_Betoltes(Bemondasok);
         }
 
-        
+        private void Bemondas_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string Valasztott_Bemondas = Bemondas_ComboBox.SelectedItem.ToString();
+            int pont = Bemondasok[Valasztott_Bemondas];
+            Pontszam.Content = pont;
         }
+    }
     }
