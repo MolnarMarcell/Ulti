@@ -32,7 +32,6 @@ namespace Ulti
         {
 
             InitializeComponent();
-            
         }
 
 

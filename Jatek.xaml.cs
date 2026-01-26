@@ -76,7 +76,7 @@ namespace Ulti
                 "Piros Terített Durchmarsch 20-100",
                 "Piros Terített Durchmarsch Ulti 20-100",
             };
-        
+
 
         public Jatek()
         {
@@ -85,8 +85,6 @@ namespace Ulti
             Bemondasok_Betoltes(Bemondasok);
         }
 
-        
-        }
 
         private void InfoButton_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -108,3 +106,4 @@ namespace Ulti
             InfoImage.Visibility = Visibility.Visible;
         }
     }
+}
