@@ -131,5 +131,20 @@ namespace Ulti
         {
 
         }
-    }
+
+        private void InfoButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+                this.DragMove();
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        {
+            InfoImage.Visibility = Visibility.Visible;
+        }
     }

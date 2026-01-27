@@ -25,5 +25,7 @@
         <Label Content="Állapot:" HorizontalAlignment="Left" Margin="99,194,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Pontszam" Content="" HorizontalAlignment="Left" Margin="182,243,0,0" VerticalAlignment="Top" Width="210"/>
 
-    </Grid>
+            </Grid>
+        </Grid>
+    </Border>
 </Window>
