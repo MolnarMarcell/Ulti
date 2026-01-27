@@ -17,17 +17,26 @@ namespace Ulti
     /// <summary>
     /// Interaction logic for Jatek.xaml
     /// </summary>
+
+    
     public partial class Jatek : Window
     {
+        //segéd változók
+        bool bemondE = false;
+        bool jatekosE = false;
+        string BemondasComboBox="";
+        string JatekosComboBox="";
+
+        //Játékos nevek betöltése
         public void Betoltes(List<string> lista)
         {
             foreach (var item in lista)
             {
                 Jatekosok_Combobox.Items.Add(item);
             }
-
-
         }
+
+        //Listából való bemondások betöltése ComboBox-ba
         public void Bemondasok_Betoltes(Dictionary<string, int> lista)
         {
             foreach (var item in lista)
@@ -35,6 +44,8 @@ namespace Ulti
                 Bemondas_ComboBox.Items.Add(item.Key);
             }
         }
+
+        //Bemondások listája+pontokkal
         public Dictionary<string,int> Bemondasok = new Dictionary<string, int>
             {
             {"Passz",1 },
@@ -76,20 +87,49 @@ namespace Ulti
             {"Piros Terített Durchmarsch 20-100" ,40},
             {"Piros Terített Durchmarsch Ulti 20-100" ,48}               
             };
-        
+
+        //Játékos + bemondás kiírása, ha nincs kiválasztva semmi, akkor úgymond "hiba" üzenet ad ki
+        public void Allapot()
+        {
+            if (bemondE && jatekosE)
+            {
+                Allapot_Label.Content = $"{JatekosComboBox} ezt választotta: {BemondasComboBox}";
+            }
+            else
+            {
+                Allapot_Label.Content = "Kérem válasszon játékost és bemondást!";
+            }
+        }
 
         public Jatek()
         {
-            InitializeComponent();
-            Betoltes(new List<string>());
-            Bemondasok_Betoltes(Bemondasok);
+            InitializeComponent(); //betöltés kor:
+            Betoltes(new List<string>()); //játékosok betöltése
+            Bemondasok_Betoltes(Bemondasok); // bemondások betöltése          
         }
 
-        private void Bemondas_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Valtozas_ComboBox(object sender, SelectionChangedEventArgs e)
         {
-            string Valasztott_Bemondas = Bemondas_ComboBox.SelectedItem.ToString();
-            int pont = Bemondasok[Valasztott_Bemondas];
+            //Bemondás kiválasztása
+            BemondasComboBox = Bemondas_ComboBox.SelectedItem.ToString();
+            int pont = Bemondasok[BemondasComboBox];
             Pontszam.Content = pont;
+            bemondE=true;
+            Allapot();
+
+        }
+
+        private void JatekosE(object sender, SelectionChangedEventArgs e)
+        {
+            //játékos kiválasztása
+            JatekosComboBox = Jatekosok_Combobox.SelectedItem.ToString();
+            jatekosE = true;
+            Allapot();
+        }
+
+        private void Mentes_Gomb_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
     }
