@@ -1,42 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Ulti
 {
-    /// <summary>
-    /// Interaction logic for Jatek.xaml
-    /// </summary>
     public partial class Jatek : Window
     {
-        public void Betoltes(List<string> lista)
-        {
-            foreach (var item in lista)
-            {
-                Jatekosok_Combobox.Items.Add(item);
-            }
+        int aktualisKor = 1;
+        Dictionary<string, int> jatekosPontok = new Dictionary<string, int>();
 
 
-        }
-        public void Bemondasok_Betoltes(Dictionary<string, int> lista)
+        // ===== BEMONDÁSOK =====
+        public Dictionary<string, int> Bemondasok = new Dictionary<string, int>
         {
-            foreach (var item in lista)
-            {
-                Bemondas_ComboBox.Items.Add(item.Key);
-            }
-        }
-        public Dictionary<string,int> Bemondasok = new Dictionary<string, int>
-            {
             {"Passz",1 },
             {"Piros Passz",2},
             {"40-100",4 },
@@ -60,11 +38,11 @@ namespace Ulti
             {"Pirosdurchmarsch 40-100" ,20},
             {"Pirosdurchmarsch Ulti" ,20},
             {"Terítettbetli" ,20},
-            { "Piros Ulti 20-100" ,24},
+            {"Piros Ulti 20-100" ,24},
             {"Terített Durchmarsch" ,24},
             {"Piros Durchmarsch 40-100 Ulti" ,28},
             {"Piros Durchmarsch 20-100" ,28},
-            {"Terített Durchmarsch 40-100"   ,28},
+            {"Terített Durchmarsch 40-100" ,28},
             {"Terített Durchmarsch Ulti" ,28},
             {"Terített Durchmarsch 40-100 Ulti" ,32},
             {"Piros Terített Durchmarsch 40-100" ,32},
@@ -74,37 +52,141 @@ namespace Ulti
             {"Terített Durchmarsch Ulti 20-100" ,36},
             {"Piros Terített Durchmarsch 40-100 Ulti" ,40},
             {"Piros Terített Durchmarsch 20-100" ,40},
-            {"Piros Terített Durchmarsch Ulti 20-100" ,48}               
-            };
+            {"Piros Terített Durchmarsch Ulti 20-100" ,48}
+        };
 
-
+        // ===== KONSTRUKTOR =====
         public Jatek()
         {
             InitializeComponent();
-            Betoltes(new List<string>());
-            Bemondasok_Betoltes(Bemondasok);
+            Bemondasok_Betoltes();
         }
 
+
+        // ===== JÁTÉKOSOK =====
+        public void Betoltes(List<string> lista)
+        {
+            Jatekosok_Combobox.Items.Clear();
+            jatekosPontok.Clear();
+
+            foreach (var jatekos in lista)
+            {
+                Jatekosok_Combobox.Items.Add(jatekos);
+                jatekosPontok[jatekos] = 0;
+            }
+
+            if (Jatekosok_Combobox.Items.Count > 0)
+                Jatekosok_Combobox.SelectedIndex = 0;
+
+            FrissitJatekosPontok();
+        }
+
+
+        private void KorInditas_Click(object sender, RoutedEventArgs e)
+        {
+            aktualisKor++;
+
+            // Fejléc frissítése
+            Border mainBorder = Content as Border; // ez a fő border, 1 db childja lehet, lekéri az összes contentjét a bordernek
+            Grid mainGrid = mainBorder.Child as Grid;// ez a fő grid, ez a childja a mainBordernek, és ez 3 childot tartalmaz
+
+            // fejléc grid (Row 0)
+            Grid headerGrid = mainGrid.Children[0] as Grid; // ez a header grid, ez a mainGrid első childja
+
+            // bal oldali StackPanel
+            StackPanel headerPanel = headerGrid.Children[0] as StackPanel; // ez a headerpanel.
+
+            // "Aktuális kör" TextBlock
+            TextBlock korText = headerPanel.Children[1] as TextBlock; // ez a korText, ez mutatja az aktuális kört
+
+            KorText.Text = $"Aktuális kör: {aktualisKor}";
+
+
+
+            Bemondas_ComboBox.SelectedIndex = -1;
+            Pontszam.Content = "Pont: 0";
+        }
+
+
+        // ===== BEMONDÁSOK =====
+        public void Bemondasok_Betoltes()
+        {
+            Bemondas_ComboBox.Items.Clear();
+
+            foreach (var item in Bemondasok.Keys)
+                Bemondas_ComboBox.Items.Add(item);
+
+            Bemondas_ComboBox.SelectionChanged += Bemondas_ComboBox_SelectionChanged;
+        }
+
+        // ===== PONTOZÁS =====
         private void Bemondas_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string Valasztott_Bemondas = Bemondas_ComboBox.SelectedItem.ToString();
-            int pont = Bemondasok[Valasztott_Bemondas];
-            Pontszam.Content = pont;
+            if (Bemondas_ComboBox.SelectedItem == null)
+                return;
+
+            string valasztottBemondas = Bemondas_ComboBox.SelectedItem.ToString();
+
+            if (Bemondasok.TryGetValue(valasztottBemondas, out int pont))
+            {
+                Pontszam.Content = $"Pont: {pont}";
+            }
         }
 
-        private void InfoButton_MouseEnter(object sender, MouseEventArgs e)
+        private void Pontozas_Click(object sender, RoutedEventArgs e)
         {
-            if (e.ButtonState == MouseButtonState.Pressed)
-                this.DragMove();
+            if (Jatekosok_Combobox.SelectedItem == null ||
+                Bemondas_ComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Válassz játékost és bemondást!");
+                return;
+            }
+
+            string jatekos = Jatekosok_Combobox.SelectedItem.ToString();
+            string bemondas = Bemondas_ComboBox.SelectedItem.ToString();
+
+            int pont = Bemondasok[bemondas];
+            jatekosPontok[jatekos] += pont;
+
+            FrissitJatekosPontok();
         }
 
+        private void FrissitJatekosPontok()
+        {
+            Border mainBorder = Content as Border;
+            Grid mainGrid = mainBorder.Child as Grid;
+
+            Grid jatekosGrid = mainGrid.Children[1] as Grid;
+
+            int i = 0;
+
+            foreach (var pair in jatekosPontok)
+            {
+                if (i >= jatekosGrid.Children.Count)
+                    break;
+
+                Border playerBorder = jatekosGrid.Children[i] as Border;
+                StackPanel panel = playerBorder.Child as StackPanel;
+
+                ((TextBlock)panel.Children[0]).Text = pair.Key;
+                ((TextBlock)panel.Children[1]).Text = $"Pont: {pair.Value}";
+
+                i++;
+            }
+        }
+
+
+
+        // ===== ABLAK KEZELÉS =====
         private void Close_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
 
-        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            InfoImage.Visibility = Visibility.Visible;
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
         }
     }
+}
