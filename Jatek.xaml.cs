@@ -129,7 +129,10 @@ namespace Ulti
 
         private void Mentes_Gomb_Click(object sender, RoutedEventArgs e)
         {
-
+            Tablazat tablazatwindow = new Tablazat();
+            Application.Current.MainWindow = tablazatwindow;
+            tablazatwindow.Show();
+            this.Close();
         }
     }
     }
