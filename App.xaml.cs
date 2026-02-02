@@ -10,6 +10,9 @@ namespace Ulti
     public partial class App : Application
     {
          public List<string> jatekosok = new List<string>();
+         public string Alapot_Label = "";
+         public int Pontszam = 0;
+         public string JatekosComboBox = "";
     }
 
 }
