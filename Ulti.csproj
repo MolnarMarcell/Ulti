@@ -9,11 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EditorConfigFiles Remove="C:\Users\12d\Source\Repos\Ulti\.editorconfig" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="C:\Users\12d\Source\Repos\Ulti\.editorconfig" />
+    <Folder Include="Images\" />
   </ItemGroup>
 
 </Project>

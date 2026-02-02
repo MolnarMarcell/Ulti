@@ -18,14 +18,14 @@ namespace Ulti
     /// Interaction logic for Jatek.xaml
     /// </summary>
 
-    
+
     public partial class Jatek : Window
     {
         //segéd változók
         bool bemondE = false;
         bool jatekosE = false;
-        string BemondasComboBox="";
-        string JatekosComboBox="";
+        string BemondasComboBox = "";
+        string JatekosComboBox = "";
 
         //Játékos nevek betöltése
         public void Betoltes(List<string> lista)
@@ -46,7 +46,7 @@ namespace Ulti
         }
 
         //Bemondások listája+pontokkal
-        public Dictionary<string,int> Bemondasok = new Dictionary<string, int>
+        public Dictionary<string, int> Bemondasok = new Dictionary<string, int>
             {
             {"Passz",1 },
             {"Piros Passz",2},
@@ -85,7 +85,7 @@ namespace Ulti
             {"Terített Durchmarsch Ulti 20-100" ,36},
             {"Piros Terített Durchmarsch 40-100 Ulti" ,40},
             {"Piros Terített Durchmarsch 20-100" ,40},
-            {"Piros Terített Durchmarsch Ulti 20-100" ,48}               
+            {"Piros Terített Durchmarsch Ulti 20-100" ,48}
             };
 
         //Játékos + bemondás kiírása, ha nincs kiválasztva semmi, akkor úgymond "hiba" üzenet ad ki
@@ -114,7 +114,7 @@ namespace Ulti
             BemondasComboBox = Bemondas_ComboBox.SelectedItem.ToString();
             int pont = Bemondasok[BemondasComboBox];
             Pontszam.Content = pont;
-            bemondE=true;
+            bemondE = true;
             Allapot();
 
         }
@@ -134,5 +134,21 @@ namespace Ulti
             tablazatwindow.Show();
             this.Close();
         }
+
+        private void InfoButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            //if (e.ButtonState == MouseButtonState.Pressed)
+            //    this.DragMove();
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        {
+            //InfoImage.Visibility = Visibility.Visible;
+        }
     }
-    }
+}
