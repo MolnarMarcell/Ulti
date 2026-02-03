@@ -20,9 +20,10 @@
         <Style TargetType="ComboBox">
             <Setter Property="Height" Value="30"/>
             <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Background" Value="#2E2E2E"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="#3A7AFE"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="Black"/>
             <Setter Property="Padding" Value="6,2"/>
         </Style>
 
@@ -90,7 +91,7 @@
                         Height="30"
                         Background="#AA3333"
                         BorderBrush="black"
-                        Click="Close_Click"/>
+                        Click="Close_Click" FontSize="20" FontFamily="Yu Gothic"/>
             </Grid>
 
             <!-- ===== TARTALOM ===== -->
@@ -150,7 +151,7 @@
 
                 <StackPanel>
                     <TextBlock Text="Bemondás"/>
-                    <ComboBox x:Name="Bemondas_ComboBox" Foreground="Black">
+                    <ComboBox x:Name="Bemondas_ComboBox" Background="Gray" Foreground="Black">
                         <ComboBoxItem Content="Passz"/>
                         <ComboBoxItem Content="Ulti"/>
                         <ComboBoxItem Content="Betli"/>

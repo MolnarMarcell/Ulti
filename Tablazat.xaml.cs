@@ -38,7 +38,6 @@ namespace Ulti
                 {"kismalac",128 },
             };
         }
-        int Pontszam = Alapot_label.Value;
 
     }
 }
