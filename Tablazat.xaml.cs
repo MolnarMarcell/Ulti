@@ -37,6 +37,7 @@ namespace Ulti
                 {"fedáksárikontra",64 },
                 {"kismalac",128 },
             };
+            
         }
 
     }
